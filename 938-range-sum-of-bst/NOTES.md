@@ -1,10 +1,9 @@
-Intuition:
+**Intuition:**
 Actually the question is pretty straightforward ,Basically the question maker is asking us to add all the numbers in a BST with a certain range given for numbers like say range is given as [Low,High]=[2,7] then we need to add all the values in BST with the numbers satisfying this range. So major people who thought of a solution will be either using recursion ,DFS or BFS.
 Now, let's talk about approach
-​
-***Algorithm:***
+
+**Algorithm:**
 In the following algorithm we will be discussing the solution of dfs approach .
-​
 letsumofRange be a variable that will be our final result . After this let's declare a dfs helper function .
 The base case will be when the tree is empty so we return null
 we have to find thesumofRange so for that we need to add all the root values which satisfyes the condition that node values should be more than low and less than high .If this is true than add it to sumofRange
