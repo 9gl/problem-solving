@@ -9,7 +9,6 @@ public:
             else if(nums[mid] < t) l=mid+1;
             else h = mid - 1;
         }
-        if(nums.size() == 1 && nums[0] == t) return 0;
-        return -1;
+        return nums.size() == 0 && nums[0] == t ? 0 : -1;
     }
 };
