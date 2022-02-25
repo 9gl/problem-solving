@@ -1,10 +1,12 @@
 class Solution {
 public:
     int countNegatives(vector<vector<int>>& grid) {
-        int cnt = 0;
-        for(vector<int>& r : grid)
+        int m(grid.size()), n(grid[0].size()), r(0), c(n-1), cnt(0);
+        while(r < m)
         {
-            cnt += upper_bound(rbegin(r), rend(r), -1) - rbegin(r); 
+            while(c >= 0 && grid[r][c] < 0) c--;
+            cnt += n - c - 1;
+            r++;
         }
         return cnt;
     }
