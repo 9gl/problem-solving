@@ -1,14 +1,11 @@
 class Solution {
 public:
     int countNegatives(vector<vector<int>>& grid) {
-       int cnt = 0;
-        for(auto& r : grid)
-       {
-           for(int& e : r)
-           {
-               if(e < 0) cnt+=1;
-           }
-       }
+        int cnt = 0;
+        for(vector<int>& r : grid)
+        {
+            cnt += upper_bound(rbegin(r), rend(r), -1) - rbegin(r); 
+        }
         return cnt;
     }
 };
