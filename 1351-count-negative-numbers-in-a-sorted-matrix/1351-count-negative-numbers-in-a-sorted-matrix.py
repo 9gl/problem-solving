@@ -1,3 +1,3 @@
 class Solution:
     def countNegatives(self, grid: List[List[int]]) -> int:
-        return sum(e <  0 for r in grid for e in r)
+        return sum((1 for i in list(chain(*grid)) if i < 0))
