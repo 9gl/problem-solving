@@ -1,17 +1,13 @@
 class Solution {
 public:
-    vector<string> buildArray(vector<int>& target, int n) {
+    vector<string> buildArray(vector<int>& t, int n) {
         stack<string> st;
-        for(int i = 1; i <= n ; i++)
+        int index = 0;
+        for(int i = 1; i < t[t.size()-1]+1 ; i++)
         {
-            if(count(begin(target),end(target), i) > 0) st.push("Push");
-            else if(target[target.size() -1] < i) break;
-            else
-            {
-                st.push("Push");
-                st.push("Pop");
-            }
-            
+            st.push("Push");
+            if(t[index] != i) st.push("Pop");
+            else index++;  
         }
         vector<string> v;
         while(st.size())
