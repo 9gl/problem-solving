@@ -1,20 +1,10 @@
-class Solution {
-public:
-    vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
-        stack<int> st;
-        unordered_map<int, int> map;
-        for(int n : nums2)
-        {
-            while(st.size() && st.top() < n)
-            {
-                map[st.top()] = n;
-                st.pop();
-            }
-            st.push(n);
-        }
-        vector<int> v;
-        for(int n : nums1) v.push_back(map.count(n) ? map[n] : -1);
-        return v;
+class Solution:
+    def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        d,st = {} ,[]
+        for n in nums2:
+            while len(st) and st[-1]  < n:
+                d[st.pop()] = n
+            st.append(n)
+        return [d.get(n,-1) for n in nums1]
             
-    }
-}; 
+            
