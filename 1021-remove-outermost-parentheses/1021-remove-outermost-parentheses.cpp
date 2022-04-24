@@ -5,8 +5,8 @@ public:
         int open = 0;
         for(char c : s)
         {
-            if(c == '(' && open++ > 0) r += c;
-            else if(c == ')' && open-- > 1) r+=c;
+            if(c == '(' && open++ > 0) r += '(';
+            else if(c == ')' && open-- > 1) r+=')';
         }
         return r;
     }
