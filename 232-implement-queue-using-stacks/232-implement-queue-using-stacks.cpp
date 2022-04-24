@@ -1,24 +1,43 @@
-class MyQueue:
+class MyQueue {
+public:
+    stack<int> ip,op;
+    MyQueue(){
+        
+    };
+    void push(int x) {
+        ip.push(x);
+    }
+    
+    int pop() {
+        peek();
+        int x = op.top();
+        op.pop();
+        return x;
+        
+    }
+    
+    int peek() {
+        if(op.empty())
+        {
+            while(ip.size())
+            {
+                op.push(ip.top());
+                ip.pop();
+            }
+        }
+        return op.top();
+    }
+    
+    bool empty() {
+        return ip.empty() && op.empty();
+    }
+};
 
-    def __init__(self):
-        self.l = []
-
-    def push(self, x: int) -> None:
-        self.l.append(x)
-
-    def pop(self) -> int:
-        return self.l.pop(0)
-
-    def peek(self) -> int:
-        return self.l[0]
-
-    def empty(self) -> bool:
-        return not len(self.l)
-
-
-# Your MyQueue object will be instantiated and called as such:
-# obj = MyQueue()
-# obj.push(x)
-# param_2 = obj.pop()
-# param_3 = obj.peek()
-# param_4 = obj.empty()
+/**
+ * Your MyQueue object will be instantiated and called as such:
+ * MyQueue* obj = new MyQueue();
+ * obj->push(x);
+ * int param_2 = obj->pop();
+ * int param_3 = obj->peek();
+ * bool param_4 = obj->empty();
+ */
