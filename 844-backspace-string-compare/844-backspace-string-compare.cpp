@@ -1,12 +1,12 @@
 class Solution {
 public:
-    stack<char> helper(string s)
+    stack<char> helper(string x)
     {
         stack<char> st;
-        for(char c : s)
+        for(char c : x)
         {
-            if(c != '#') st.push(c);
-            else if(!st.empty()) st.pop();
+            if(c!= '#') st.push(c);
+            else if(st.size()) st.pop();
         }
         return st;
     }
