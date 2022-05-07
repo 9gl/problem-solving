@@ -1,12 +1,12 @@
-class Solution:
-    def timeRequiredToBuy(self, A: List[int], k: int) -> int:
-        time = 0
-        while A[k] != 0:
-            for ind ,_ in enumerate(A):
-                if A[k] == 0:
-                    break
-                elif A[ind] != 0:
-                    time+=1
-                    A[ind] -=1
-        return time
-                
+class Solution {
+public:
+    int timeRequiredToBuy(vector<int>& t, int k) {
+		int res(0), sz(t.size()), p(t[k]);
+		for(int i = 0; i < sz; i++)
+        {
+            if(i <= k) res+= min(t[k], t[i]);
+            else if(i > k) res+= min(t[k]-1,t[i]);
+        }
+        return res;
+    }
+};
