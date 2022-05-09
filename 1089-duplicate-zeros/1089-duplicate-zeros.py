@@ -3,7 +3,7 @@ class Solution:
         """
         Do not return anything, modify arr in-place instead.
         """
-        l = [] * len(arr)
+        l = []
         for i in arr:
             if i == 0:
                 l.append(0)
