@@ -1,11 +1,15 @@
-class Solution:
-    def duplicateZeros(self, arr: List[int]) -> None:
-        """
-        Do not return anything, modify arr in-place instead.
-        """
-        l = []
-        for i in arr:
-            if i == 0:
-                l.append(0)
-            l.append(i)
-        arr[:] = l[:len(arr)]
+class Solution {
+public:
+    void duplicateZeros(vector<int>& arr) {
+        int sz = arr.size();
+        for(int i = 0; i < sz; i++)
+        {
+            if(!arr[i])
+            {
+                arr.pop_back();
+                arr.insert(begin(arr) + i, 0);
+                i++;
+            }
+        }
+    }
+};
