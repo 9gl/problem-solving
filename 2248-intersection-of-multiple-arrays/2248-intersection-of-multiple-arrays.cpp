@@ -1,19 +1,16 @@
 class Solution {
 public:
     vector<int> intersection(vector<vector<int>>& nums) {
-        map<int, int> map;
-        int sz(nums.size());
-        for(vector<int>& v : nums)
+        int map[1001] = {};
+        for(vector<int>& arr : nums)
         {
-            for(int &n : v)
-            {
-                map[n]++;
-            }
+            for(int& n : arr) map[n]++;
         }
         vector<int> v;
-        for(auto [f,s] : map)
+        int sz(nums.size());
+        for(int i = 0; i < 1001; i++)
         {
-            if(s == sz) v.push_back(f);
+            if(map[i] == sz) v.push_back(i);
         }
         return v;
     }
