@@ -1,20 +1,11 @@
-class Solution {
-public:
-    vector<int> intersection(vector<vector<int>>& nums) {
-        map<int, int> map;
-        int sz(nums.size());
-        for(vector<int>& v : nums)
-        {
-            for(int &n : v)
-            {
-                map[n]++;
-            }
-        }
-        vector<int> v;
-        for(auto [f,s] : map)
-        {
-            if(s == sz) v.push_back(f);
-        }
-        return v;
-    }
-};
+class Solution:
+    def intersection(self, nums: List[List[int]]) -> List[int]:
+        mp = [0] * 1001
+        for arr in nums:
+            for n in arr:
+                mp[n] += 1
+        res = []
+        for i in range(len(mp)):
+            if mp[i] == len(nums):
+                res.append(i)
+        return res
