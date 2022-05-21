@@ -1,11 +1,7 @@
-class Solution {
-public:
-    bool makeEqual(vector<string>& words) {
-        int mp[26] = {};
-        for(string& word : words)
-        {
-            for(char& ch : word) mp[ch - 'a']++;
-        }
-        return all_of(begin(mp),end(mp),[&](int c){return c % words.size() == 0;});
-    }
-};
+class Solution:
+    def makeEqual(self, words: List[str]) -> bool:
+        mp = [0] * 26
+        for word in words:
+            for ch in word:
+                mp[ord(ch) - ord('a')]+=1
+        return all(x % len(words) == 0 for x in mp)
