@@ -1,13 +1,16 @@
-class Solution:
-    def countPoints(self, points: List[List[int]], queries: List[List[int]]) -> List[int]:
-        l = [0] * len(queries)
-        i = 0
-        for q in queries:
-            cnt = 0
-            for p1, p2 in points:
-                if (p1-q[0])**2 + (p2-q[1])**2 <= q[2]**2:
-                    cnt+=1
-            l[i]+=cnt
-            i+=1
-        return l
-        
+class Solution {
+public:
+    vector<int> countPoints(vector<vector<int>>& points, vector<vector<int>>& queries) {
+        vector<int> res;
+        for(auto& q :queries )
+        {
+            int cnt(0), r(q[2]*q[2]);
+            for(auto& p : points)
+            {
+                cnt += (p[0] - q[0])*(p[0] - q[0]) + (p[1] - q[1])*(p[1] - q[1]) <= r;
+            }
+            res.push_back(cnt);
+        }
+        return res;
+    }
+};
