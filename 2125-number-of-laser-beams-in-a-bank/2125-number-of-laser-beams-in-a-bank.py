@@ -10,7 +10,6 @@ class Solution:
                 l.append(cnt)
         r = 0
         j = 1
-        print(l)
         for i in range(len(l)-1):
             r += l[i]*l[j]
             j+=1
