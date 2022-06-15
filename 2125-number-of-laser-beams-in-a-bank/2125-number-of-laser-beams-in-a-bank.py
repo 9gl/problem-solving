@@ -12,8 +12,7 @@ class Solution:
         j = 1
         print(l)
         for i in range(len(l)-1):
-            if l[i] != 0 and l[j] != 0:
-                r += l[i]*l[j]
+            r += l[i]*l[j]
             j+=1
         return r
             
